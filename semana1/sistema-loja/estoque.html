@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Controle de Estoque - Sistema de Gestão Comercial</title>
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
 </head>
 <body>
     <header>
         <img src="imagens/logo.png" alt="Logo">
-        <h1>Sistema de Gestão Comercial</h1>
 
         <nav>
             <ul>
@@ -24,7 +24,7 @@
         <h2>Controle de Estoque</h2>
 
         <table>
-            <tr>
+            <tr id="titulo-tabela">
                 <th>Imagem</th>
                 <th>Descrição</th>
                 <th>Preço</th>
@@ -33,38 +33,42 @@
                 <th>Deletar</th>
             </tr>
             <tr>
-                <td><img src="imagens/smartwatch.jpg" class="imagem"></td>
-                <td><p class="descricao">Smartwatch Preto</p></td>
-                <td><p class="preco">R$ 350,00</p></td>
-                <td><p class="quantidade">104</p></td>
-                <td><a href="#">Alterar</a></td>
-                <td><a href="#">Deletar</a></td>
+                <td><img src="imagens/smartwatch.jpg" class="imagem-estoque"></td>
+                <td class="descricao">Smartwatch Preto</td>
+                <td class="preco">R$ 350,00</td>
+                <td class="quantidade">104</td>
+                <td class="alterar"><a href="#">Alterar</a></td>
+                <td class="deletar"><a href="#">Deletar</a></td>
             </tr>
             <tr>
-                <td><img src="imagens/notebook.jpg" class="imagem"></td>
-                <td><p class="descricao"></p>Notebook</td>
-                <td><p class="preco"></p>R$ 4.500,00</td>
-                <td><p class="quantidade"></p>60</td>
-                <td><a href="#">Alterar</a></td>
-                <td><a href="#">Deletar</a></td>
+                <td><img src="imagens/notebook.jpg" class="imagem-estoque"></td>
+                <td class="descricao">Notebook</td>
+                <td class="preco">R$ 4.500,00</td>
+                <td class="quantidade">60</td>
+                <td class="alterar"><a href="#">Alterar</a></td>
+                <td class="deletar"><a href="#">Deletar</a></td>
             </tr>
             <tr>
-                <td><img src="imagens/smartphone.jpg" class="imagem"></td>
-                <td><p class="descricao">Smartphone</p></td>
-                <td><p class="preco"></p>R$ 2.600,00</td>
-                <td><p class="quantidade"></p>110</td>
-                <td><a href="#">Alterar</a></td>
-                <td><a href="#">Deletar</a></td>
+                <td><img src="imagens/smartphone.jpg" class="imagem-estoque"></td>
+                <td class="descricao">Smartphone</td>
+                <td class="preco">R$ 2.600,00</td>
+                <td class="quantidade">110</td>
+                <td class="alterar"><a href="#">Alterar</a></td>
+                <td class="alterar"><a href="#">Deletar</a></td>
             </tr>
             <tr>
-                <td><img src="imagens/fones-de-ouvido.jpg" class="imagem"></td>
-                <td><p class="descricao">Fones de ouvido</p></td>
-                <td><p class="preco"></p>R$ 180,00</td>
-                <td><p class="quantidade">100</p></td>
-                <td><a href="#">Alterar</a></td>
-                <td><a href="#">Deletar</a></td>
+                <td><img src="imagens/fones-de-ouvido.jpg" class="imagem-estoque"></td>
+                <td class="descricao"><p>Fones de ouvido</p></td>
+                <td class="preco">R$ 180,00</td>
+                <td class="quantidade">100</td>
+                <td class="alterar"><a href="#">Alterar</a></td>
+                <td class="alterar"><a href="#">Deletar</a></td>
             </tr>
         </table>
     </main>
+
+    <footer>
+        <img src="/imagens/logo.png">
+    </footer>
 </body>
 </html>
