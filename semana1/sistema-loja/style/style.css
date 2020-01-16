@@ -44,7 +44,7 @@ main h2 {
     text-align: center;
 }
 
-table {
+table.funcionarios {
     margin: 20px auto;
 }
 
@@ -96,8 +96,9 @@ label {
 }
 
 form input {
+    width: 80%;
     margin: 5px;
-    padding: 10px 30%;
+    padding: 10px 3%;
     display: block;
 }
 
