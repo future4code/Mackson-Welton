@@ -70,6 +70,7 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    padding: 60px 0;
 }
 
 #container-de-descricao>ol {
