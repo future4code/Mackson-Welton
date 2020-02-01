@@ -25,20 +25,18 @@ if (confirm("Quer iniciar uma nova rodada?")) {
       usuarioCartas.push(carta1.texto);
       usuarioPontos.push(carta1.valor);
       totalPontosUsuario += usuarioPontos[i];
-      console.log(usuarioPontos[i]);
 
       carta2 = comprarCarta();
       computadorCartas.push(carta2.texto);
       computadorPontos.push(carta2.valor);
       totalPontosComputador += computadorPontos[i];
 
-      if (usuarioPontos[i - 1] === 11 && usuarioPontos[i] === 11 ||
-         computadorPontos[i - 1] === 11 && computadorPontos[i] === 11) {
+      if (usuarioPontos[i - 1] === 11 && usuarioPontos[i] === 11) {
          carta1 = comprarCarta();
          usuarioCartas[i - 1] = carta1.texto;
          usuarioPontos[i - 1] = carta1.valor;
          totalPontosUsuario = usuarioPontos[i - 1] + usuarioPontos[i];
-
+      } else if (computadorPontos[i - 1] === 11 && computadorPontos[i] === 11) {
          carta2 = comprarCarta();
          computadorCartas[i - 1] = carta2.texto;
          computadorPontos[i - 1] = carta2.valor;
@@ -47,17 +45,19 @@ if (confirm("Quer iniciar uma nova rodada?")) {
 
    }
 
-   let cartas;
+   // Compra de cartas pelo usuário
+
+   let cartasTotalUsuario;
    let comprar = true;
 
    while (totalPontosUsuario < 21 && comprar) {
 
-      cartas = usuarioCartas[0] + " ";
+      cartasTotalUsuario = usuarioCartas[0] + " ";
       for (let m = 1; m < usuarioCartas.length; m++) {
-         cartas += usuarioCartas[m] + " ";
+         cartasTotalUsuario += usuarioCartas[m] + " ";
       }
 
-      if (confirm("Suas cartas são " + cartas
+      if (confirm("Suas cartas são " + cartasTotalUsuario
          + "A carta revelada do computador é " + computadorCartas[0]
          + "\n" + "Deseja comprar mais uma carta?")) {
          carta1 = comprarCarta();
@@ -69,11 +69,21 @@ if (confirm("Quer iniciar uma nova rodada?")) {
       }
    }
 
+   let listaCartasUsuario = "";
+
+   for (let x = 0; x < usuarioCartas.length; x++) {
+      listaCartasUsuario += usuarioCartas[x] + " ";
+   }
+
+   // Compra de cartas pelo computador
+
+let cartasTotalComputador;
+
    while (totalPontosComputador < 21) {
 
-      cartasComputador = computadorCartas[0] + " ";
-      for (let m = 1; m < usuarioCartas.length; m++) {
-         cartas += usuarioCartas[m] + " ";
+      cartasTotalComputador = computadorCartas[0] + " ";
+      for (let m = 1; m < computadorCartas.length; m++) {
+         cartasTotalComputador+= computadorCartas[m] + " ";
       }
 
       carta2 = comprarCarta();
@@ -82,22 +92,18 @@ if (confirm("Quer iniciar uma nova rodada?")) {
       totalPontosComputador += computadorPontos[computadorPontos.length - 1];
    }
 
-   let listaCartasUsuario = "";
+   let listaCartasComputador = "";
 
-   for (let x = 0; x < usuarioCartas.length; x++) {
-      listaCartasUsuario += usuarioCartas[x] + " ";
+   for (let x = 0; x < computadorCartas.length; x++) {
+      listaCartasComputador += computadorCartas[x] + " ";
    }
 
    // Resultado do usuário
+
    console.log("Usuário - cartas: " + listaCartasUsuario + " - pontuação " + totalPontosUsuario);
 
    // Resultado do computador
 
-   let listaCartasComputador = "";
-
-   for (let x = 0; x < usuarioCartas.length; x++) {
-      listaCartasComputador += computadorCartas[x] + " ";
-   }
    console.log("Computador - cartas: " + listaCartasComputador + " - pontuação " + totalPontosComputador);
 
 
