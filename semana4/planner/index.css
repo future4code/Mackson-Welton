@@ -1,0 +1,43 @@
+body {
+    margin: 0%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    border-bottom: 1px solid black;
+}
+
+header input {
+ width: 25%;
+}
+
+header input, header select, header button {
+    margin: 0 1%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2% 0;
+}
+
+article {
+    width: 30%;
+    height: 50vh;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+article p {
+    font-size: 32px;
+}
+
+.riscar {
+    text-decoration: line-through;
+}
