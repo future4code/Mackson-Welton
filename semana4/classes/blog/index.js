@@ -21,4 +21,13 @@ function publicar() {
     document.querySelector("#conteudo").value = "";
 
     console.log(postsDoBlog);
+
+    exibirPosts(postsDoBlog)
+}
+
+function exibirPosts(postsDoBlog) {
+    const espacoBlog = document.querySelector(".posts")
+    espacoBlog.innerHTML += `<h1>${postsDoBlog[0].titulo}<h1>`;
+    espacoBlog.innerHTML += `<h3>${postsDoBlog[0].autor}<h3>`;
+    espacoBlog.innerHTML += `<p>${postsDoBlog[0].conteudo}<p>`;
 }
