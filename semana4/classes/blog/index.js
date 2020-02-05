@@ -12,4 +12,13 @@ function publicar() {
     const conteudo = document.querySelector("#conteudo").value;
 
     const novoPost = new Post(titulo, autor, conteudo);
+
+    const postsDoBlog = []
+    postsDoBlog.push(novoPost);
+
+    document.querySelector("#titulo").value = "";
+    document.querySelector("#autor").value = "";
+    document.querySelector("#conteudo").value = "";
+
+    console.log(postsDoBlog);
 }
