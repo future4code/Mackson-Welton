@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    display: grid;
+}
+
+header {
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+}
+
+main {
+    width: auto;
+    margin: 5% auto;
+}
+
+main input {
+    width: 60%;
+    display: block;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+main textarea {
+    display: block;
+    margin: 5px;
+    border: 1px solid black;
+}
