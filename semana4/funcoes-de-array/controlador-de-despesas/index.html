@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <section class="cadastro-despesa">
+            <fieldset>
+                <legend>Controlador de Despesas</legend>
+                <label for="valor">Valor</label>
+                <input type="text" id="valor" placeholder="R$ 0">
+                <label for="tipo-despesa">Tipo de Despesa</label>
+                <select name="tipo-despesa" id="tipo-despesa">
+                    <option value="Casa">Despesas de Casa</option>
+                    <option value="Festas">Despesas de Festas</option>
+                    <option value="Viagens">Despesas de Viagem</option>
+                    <option value="Alimentação">Despesas com Alimentos</option>
+                </select>
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao">
+                <button onclick="novaDespesa()">Cadastrar Despesa</button>
+            </fieldset>
+        </section>
+        <section class="detalhe-despesa">
+            <fieldset>
+                <legend>Despesas Detalhadas</legend>
+                <label for="tipo-despesa-filtro">Tipo de Despesa</label>
+                <select name="tipo-despesa-filtro" id="tipo-despesa-filtro">
+                    <option value="Casa">Despesas de Casa</option>
+                    <option value="Festas">Despesas de Festas</option>
+                    <option value="Viagens">Despesas de Viagem</option>
+                    <option value="Alimentação">Despesas com Alimentos</option>
+                </select>
+                <label for="valor-minimo">Valor Mínimo</label>
+                <input type="text" id="valorMinimo" placeholder="R$ 0">
+                <label for="valor-maximo">Valor Máximo</label>
+                <input type="text" id="valorMaximo" placeholder="R$ 0">
+                <button onclick="filtrar()">Filtrar</button>
+                <button onclick="limparFiltros()">Limpar Filtros</button>
+            </fieldset>
+
+            <table class="tabela-de-despesas">
+                <thead>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+        <section class="extrato">
+
+        </section>
+    </main>
+</body>
+
+</html>
