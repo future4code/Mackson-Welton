@@ -201,3 +201,68 @@ function maiorEMenor() {
   funcaoAnonima()
 
 }
+
+// Exercício de Objetos
+
+/*
+1. Arrays são variáveis que armazenam diversos valores que podem ou não ter relação entre sí e objetos são variáveis que 
+armezanam diversos valores que possuem relação entre sí e possuí propriedades e métodos que representam as características 
+um único objeto.
+
+*/
+
+// 2.
+
+function criaRetangulo(lado1, lado2) {
+
+    let triangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2 * (lado1 + lado2),
+      area: (lado1 * lado2)
+    }
+  
+    return triangulo;
+  }
+  
+  // 3.
+  
+  function filme() {
+    const filme = {
+      titulo: "A Batalha de Riddick",
+      ano: 2004,
+      diretor: "David Twohy",
+      atores: ["Vin Diesel", "Thandie Newton", "Karl Urban"]
+    }
+  
+    let atores = ""
+    filme.atores.forEach((ator, index, array) => {
+      if (ator !== array[array.length - 1]) {
+        atores += " " + ator + ","
+      } else {
+        atores += " " + ator + "."
+      }
+    })
+  
+    console.log("Venha assistir ao filme" + filme['titulo'] + ", de " + filme['ano'] + " dirigido por " + filme.diretor + " e estrelado por" + atores);
+  }
+  
+  // 4.
+  
+  function pessoaAnonima() {
+    const pessoa = {
+      nome: "José",
+      idade: 27,
+      email: "jose@email.com",
+      endereco: "Av. Dr. Camilo"
+    }
+  
+    function anonimizarPessoa(pessoa) {
+      const novoUsuario = {
+        ...pessoa,
+        nome: 'ANÔNIMO'
+      }
+  
+      return novoUsuario
+    }
+  }
