@@ -159,110 +159,214 @@ function exerciciosDeFuncoes() {
 
     //1.
 
-function maiorEMenor() {
-    const array = [30, 5, 40, 10, 9, 15]
-    let maior = array[0]
-    let menor = array[0]
-    let segundoMaior = 0;
-    let segundoMenor = 0;
-  
-    for (let item of array) {
-  
-      if (item > maior) {
-          segundoMaior = maior
-          maior = item
-      } else if (item < maior) {
-          maior = maior
-      }
-  
-      if (item < menor) {
-        segundoMenor = menor
-        menor = item
-      }
-  }
-  
-    for (let item of array) {
-      if (item > menor && item < segundoMenor) {
-        segundoMenor = item
-      }
+    function maiorEMenor() {
+        const array = [30, 5, 40, 10, 9, 15]
+        let maior = array[0]
+        let menor = array[0]
+        let segundoMaior = 0;
+        let segundoMenor = 0;
+
+        for (let item of array) {
+
+            if (item > maior) {
+                segundoMaior = maior
+                maior = item
+            } else if (item < maior) {
+                maior = maior
+            }
+
+            if (item < menor) {
+                segundoMenor = menor
+                menor = item
+            }
+        }
+
+        for (let item of array) {
+            if (item > menor && item < segundoMenor) {
+                segundoMenor = item
+            }
+        }
+
+        console.log(segundoMaior, segundoMenor)
     }
-  
-  console.log(segundoMaior, segundoMenor)
-  }
-  
-  maiorEMenor()
-  
-  //2.
-  
-  const funcaoAnonima = function () {
-    alert("Hello Future4");
-  }
-  
-  funcaoAnonima()
+
+    maiorEMenor()
+
+    //2.
+
+    const funcaoAnonima = function () {
+        alert("Hello Future4");
+    }
+
+    funcaoAnonima()
 
 }
 
 // Exercício de Objetos
 
-/*
-1. Arrays são variáveis que armazenam diversos valores que podem ou não ter relação entre sí e objetos são variáveis que 
-armezanam diversos valores que possuem relação entre sí e possuí propriedades e métodos que representam as características 
-um único objeto.
 
-*/
+function exerciciosDeObjetos() {
 
-// 2.
+    /*
+    1. Arrays são variáveis que armazenam diversos valores que podem ou não ter relação entre sí e objetos são variáveis que 
+    armezanam diversos valores que possuem relação entre sí e possuí propriedades e métodos que representam as características 
+    um único objeto.
+    
+    */
 
-function criaRetangulo(lado1, lado2) {
+    // 2.
 
-    let triangulo = {
-      largura: lado1,
-      altura: lado2,
-      perimetro: 2 * (lado1 + lado2),
-      area: (lado1 * lado2)
+    function criaRetangulo(lado1, lado2) {
+
+        let triangulo = {
+            largura: lado1,
+            altura: lado2,
+            perimetro: 2 * (lado1 + lado2),
+            area: (lado1 * lado2)
+        }
+
+        return triangulo;
     }
-  
-    return triangulo;
-  }
-  
-  // 3.
-  
-  function filme() {
-    const filme = {
-      titulo: "A Batalha de Riddick",
-      ano: 2004,
-      diretor: "David Twohy",
-      atores: ["Vin Diesel", "Thandie Newton", "Karl Urban"]
+
+    // 3.
+
+    function filme() {
+        const filme = {
+            titulo: "A Batalha de Riddick",
+            ano: 2004,
+            diretor: "David Twohy",
+            atores: ["Vin Diesel", "Thandie Newton", "Karl Urban"]
+        }
+
+        let atores = ""
+        filme.atores.forEach((ator, index, array) => {
+            if (ator !== array[array.length - 1]) {
+                atores += " " + ator + ","
+            } else {
+                atores += " " + ator + "."
+            }
+        })
+
+        console.log("Venha assistir ao filme" + filme['titulo'] + ", de " + filme['ano'] + " dirigido por " + filme.diretor + " e estrelado por" + atores);
     }
-  
-    let atores = ""
-    filme.atores.forEach((ator, index, array) => {
-      if (ator !== array[array.length - 1]) {
-        atores += " " + ator + ","
-      } else {
-        atores += " " + ator + "."
-      }
-    })
-  
-    console.log("Venha assistir ao filme" + filme['titulo'] + ", de " + filme['ano'] + " dirigido por " + filme.diretor + " e estrelado por" + atores);
-  }
-  
-  // 4.
-  
-  function pessoaAnonima() {
-    const pessoa = {
-      nome: "José",
-      idade: 27,
-      email: "jose@email.com",
-      endereco: "Av. Dr. Camilo"
+
+    // 4.
+
+    function pessoaAnonima() {
+        const pessoa = {
+            nome: "José",
+            idade: 27,
+            email: "jose@email.com",
+            endereco: "Av. Dr. Camilo"
+        }
+
+        function anonimizarPessoa(pessoa) {
+            const novoUsuario = {
+                ...pessoa,
+                nome: 'ANÔNIMO'
+            }
+
+            return novoUsuario
+        }
     }
-  
-    function anonimizarPessoa(pessoa) {
-      const novoUsuario = {
-        ...pessoa,
-        nome: 'ANÔNIMO'
-      }
-  
-      return novoUsuario
+}
+
+
+// Exercícios de Funções de array
+
+function exerciciosFuncoesArray() {
+
+    function funcoesArray() {
+
+        const array = [
+            { nome: "Pedro", idade: 20 },
+            { nome: "João", idade: 10 },
+            { nome: "Paula", idade: 12 },
+            { nome: "Artur", idade: 89 }
+        ]
+
     }
-  }
+
+    //a. 
+
+    function adultos(array) {
+
+        const adultos = array.filter((pessoa) => {
+            return pessoa.idade > 18;
+        })
+
+        return adultos;
+
+    }
+
+
+    // b.
+
+    function criancaAdolescentes(array) {
+
+        const adultos = array.filter((pessoa) => {
+            return pessoa.idade < 18;
+        })
+
+        return adultos;
+
+    }
+
+    // 4.
+
+    function emailsConsultas() {
+        const consultas = [
+            { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+            { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+            { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+            { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+        ]
+
+        let pronome;
+        let pronome2;
+
+        const consulta = consultas.map((paciente) => {
+
+            if (paciente.genero === "masculino") {
+                pronome = "Sr.";
+                pronome2 = "lembrá-lo";
+            } else {
+                pronome = "Sra.";
+                pronome2 = "lembrá-la";
+            }
+
+            if (paciente.cancelada) {
+                return (`Olá, ${pronome} ${paciente.nome}. Infelizmente, sua consulta marcada para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`)
+
+            } else {
+                return (`Olá, ${pronome} ${paciente.nome}. Estamos enviando esta mensagem para ${pronome2} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`
+                )
+            }
+        })
+    }
+
+
+    //5. 
+
+    function bancoDigital() {
+        const contas = [
+            { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+            { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+            { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+            { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+            { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+            { cliente: "Soter", saldoTotal: 1200, compras: [] }
+        ]
+
+        let soma = 0;
+
+        contas.forEach((clientes) => {
+            clientes.compras.forEach((compras) => {
+                soma += compras
+            })
+            clientes.saldoTotal = clientes.saldoTotal - soma
+            soma = 0
+        })
+    }
+
+}
