@@ -152,3 +152,52 @@ function logicaDeProgramacao() {
         console.log("A diferença entre eles é ", num2 - num1)
     }
 }
+
+// Exercícios de funções
+
+function exerciciosDeFuncoes() {
+
+    //1.
+
+function maiorEMenor() {
+    const array = [30, 5, 40, 10, 9, 15]
+    let maior = array[0]
+    let menor = array[0]
+    let segundoMaior = 0;
+    let segundoMenor = 0;
+  
+    for (let item of array) {
+  
+      if (item > maior) {
+          segundoMaior = maior
+          maior = item
+      } else if (item < maior) {
+          maior = maior
+      }
+  
+      if (item < menor) {
+        segundoMenor = menor
+        menor = item
+      }
+  }
+  
+    for (let item of array) {
+      if (item > menor && item < segundoMenor) {
+        segundoMenor = item
+      }
+    }
+  
+  console.log(segundoMaior, segundoMenor)
+  }
+  
+  maiorEMenor()
+  
+  //2.
+  
+  const funcaoAnonima = function () {
+    alert("Hello Future4");
+  }
+  
+  funcaoAnonima()
+
+}
