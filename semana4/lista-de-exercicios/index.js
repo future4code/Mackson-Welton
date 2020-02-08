@@ -11,8 +11,8 @@ function interpretacaoDeCodigo() {
     Abaixo da função, no escopo global, é atribuida a constante meuDinheiro a chamada da função conversorDeMoeada com o valor 100 de 
     parâmetro e logo abaixo da mesma é exibida no console o valor armazenado na variável que será o retorno da função.
     */
-  
-  
+
+
     /*
     2. A função investeDinheiro recebe dois parâmetros tipoDeInvestimento e valor, na primeira linha é declara uma variável sem atribuição 
     chamada valorAposInvestimento na segunda linha é utilizado um switch que compara o prâmentro tipoDeInvestimento com os seus elementos e 
@@ -28,8 +28,8 @@ function interpretacaoDeCodigo() {
     no console será "165" e será mostrado um alerta com a mensagem "TIPO DE INVESTIMENTO INFORMADO INCORRETO!"
     
     */
-  
-  
+
+
     /*
     3. Na primeira linha é atribuido a uma constante numeros um array de números, na segunda linha e terceira linha é atribuido a duas 
     constantes array1 e array2 um array vazio para cada.
@@ -43,8 +43,8 @@ function interpretacaoDeCodigo() {
     para exibir os tamanhos do array1 e array2.
     
     */
-  
-  
+
+
     /*
     4. Na primeira linha é atribuida a constante numeros um array de números, na segunda linha é atribuida a variavel numero1 um valor infinito e 
     na terceira linha é atribuida a variável numero2 o valor zero. Logo abaixo foi criado um laço for que atribui a variável numero os itens do 
@@ -56,5 +56,99 @@ function interpretacaoDeCodigo() {
     resulado da primeira é -10 e da segunda 1590.
     
     */
-  
-  }
+
+}
+
+function logicaDeProgramacao() {
+    //1.
+
+    // É possível interar uma lista utilizado o laço for, for of e forEach.
+
+    const array = [1, 2, 3, 4, 5]
+
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+
+    for (let item of array) {
+        console.log(item)
+    }
+
+    array.forEach((item, index, array) => {
+        console.log(item)
+    })
+
+
+    //2.
+    /*
+      a. false
+      
+      b. true
+      
+      c. true
+      
+      d. true
+      
+      e. true
+      
+      
+      */
+
+
+    //3.
+
+    // O código anterior está gerando um loop infinito, pois não está incrementando a varável i.
+
+    const quantidadeDeNumerosPares = 5
+    let i = 0
+
+    while (i < quantidadeDeNumerosPares) {
+        console.log("Console: ", i * 2)
+        i++
+    }
+
+    //4.
+
+    function triangulo(a, b, c) {
+        if (a === b && a === c) {
+            return "Este triangulo é equilátero"
+        } else if ((a === b && a !== c) || (b === c && a !== b) || (a === c && c !== b)) {
+            return "Este triangulo é isósceles"
+        } else {
+            return "Este triangulo é escaleno"
+        }
+    }
+
+    //5.
+
+    let num1 = 30;
+    let num2 = 15;
+
+    if (num1 > num2) {
+        console.log("O maior é: ", num1)
+        if (num1 % 2 === 0) {
+            console.log(num1, " é divisível por ", num2)
+        } else {
+            console.log(num1, " não é divisível por ", num2)
+        }
+        if (num2 % 2 === 0) {
+            console.log(num2, " é divisível por ", num1)
+        } else {
+            console.log(num2, " não é divisível por ", num1)
+        }
+        console.log("A diferença entre eles é ", num1 - num2)
+    } else {
+        console.log("O maior é: ", num2)
+        if (num1 % 2 === 0) {
+            console.log(num1, " é divisível por ", num2)
+        } else {
+            console.log(num1, " não é divisível por ", num2)
+        }
+        if (num2 % 2 === 0) {
+            console.log(num2, " é divisível por ", num1)
+        } else {
+            console.log(num2, " não é divisível por ", num1)
+        }
+        console.log("A diferença entre eles é ", num2 - num1)
+    }
+}
