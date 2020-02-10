@@ -1,15 +1,6 @@
 import React from 'react';
 import './App.css';
 
-import img1 from './img/1.jpg'
-import img2 from './img/2.jpg'
-import img3 from './img/3.jpg'
-import img4 from './img/4.jpg'
-import img5 from './img/5.jpg'
-import img6 from './img/6.jpg'
-import img7 from './img/7.jpg'
-import img8 from './img/8.jpg'
-
 function App() {
   return (
     <div>
@@ -35,49 +26,49 @@ function App() {
             <ul>
               <a href="video1.index">
                 <li>
-                  <img src={img1} />
+                  <img src={require("./img/1.jpg")} />
                   <h2>Título 1</h2>
                 </li>
               </a>
               <a href="pages/video2.html">
                 <li>
-                  <img src={img2} />
+                  <img src={require("./img/2.jpg")} />
                   <h2>Título 2</h2>
                 </li>
               </a>
               <a href="video3.html">
                 <li>
-                  <img src={img3} />
+                  <img src={require("./img/3.jpg")} />
                   <h2>Título 3</h2>
                 </li>
               </a>
               <a href="video4.html">
                 <li>
-                  <img src={img4} />
+                  <img src={require("./img/4.jpg")} />
                   <h2>Título 4</h2>
                 </li>
               </a>
               <a href="video5.html">
                 <li>
-                  <img src={img5} />
+                  <img src={require("./img/5.jpg")} />
                   <h2>Título 5</h2>
                 </li>
               </a>
               <a href="video6.html">
                 <li>
-                  <img src={img6} />
+                  <img src={require("./img/6.jpg")} />
                   <h2>Título 6</h2>
                 </li>
               </a>
               <a href="video7.html">
                 <li>
-                  <img src={img7} />
+                  <img src={require("./img/7.jpg")} />
                   <h2>Título 7</h2>
                 </li>
               </a>
               <a href="video8.html">
                 <li>
-                  <img src={img8} />
+                  <img src={require("./img/8.jpg")} />
                   <h2>Título 8</h2>
                 </li>
               </a>
