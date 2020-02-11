@@ -1,0 +1,13 @@
+.App {
+  margin: 5%;
+}
+
+.cards {
+  width: 30%;
+  margin: 1% auto;
+  border: 1px solid black;
+}
+
+.App h2 {
+  text-align: center;
+}

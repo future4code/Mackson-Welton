@@ -1,0 +1,16 @@
+.ImageButton {
+    width: 20%;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 28px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ImageButton img {
+    width: 10%;
+    height: 10%;
+}
+
