@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <Feed perfil={require("./img/perfil.png")} nome="Astronalta" post={require("./img/astronauta.jpg")}/>
       <Feed perfil={require("./img/perfil.png")} nome="Astronalta" post={require("./img/astronauta2.jpg")}/>
+      <Feed perfil={require("./img/perfil.png")} nome="Astronalta" post={require("./img/astronauta3.jpg")}/>
     </div>
   );
 }
