@@ -1,0 +1,47 @@
+.Feed {
+    width: 20%;
+    margin: 20px auto;
+    border: 1px solid gray;
+}
+
+.perfil {
+    width: 30px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 1000%;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.Feed p {
+    display: inline;
+}
+
+.post {
+    width: 100%;
+}
+
+.botoes {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.botoes img {
+    margin-right: 5px;
+}
+
+.curti, .comentarios {
+    display: flex;
+    align-items: center;
+}
+
+.caixaDeComentario {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.caixaDeComentario input {
+    width: 72%;
+}
