@@ -1,0 +1,26 @@
+.BigCard {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    padding: 1%;
+}
+
+
+.BigCard h4 {
+    grid-column: 2;
+    grid-row-start: 1;
+    font-size: 1rem;
+}
+
+.BigCard img{
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    width: 80%;
+    border-radius: 100%;
+}
+
+.BigCard p {
+    grid-column: 2;
+    grid-row-start: 2;
+}

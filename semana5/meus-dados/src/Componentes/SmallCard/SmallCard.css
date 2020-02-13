@@ -1,0 +1,22 @@
+.SmallCard {
+    display: flex;
+    padding: 2%;
+    justify-content: left;
+    align-items: center;
+    
+}
+
+.SmallCard img {
+    width: 6%;
+    height: 10%;
+    margin: 0;
+}
+
+.SmallCard h5 {
+    font-size: 1rem;
+    margin: 0 3% 0 5%;
+}
+
+.SmallCard p {
+    margin: 0;
+}
