@@ -4,6 +4,7 @@ class DadosGerais extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = { value: "Ensino Médio Incompleto" }
     }
 
     render() {
@@ -17,11 +18,11 @@ class DadosGerais extends React.Component {
                 <p>3. Qual seu email?</p>
                 <input type="email" />
                 <p>4. Qual a sua escolaridade</p>
-                <select onChange={(event) => {this.props.escolaridade(event.target.value)}}>
+                <select onChange={(event) => {this.props.escolaridade(event.value)}}>
                     <option value="Ensino Médio Incompleto">Ensino médio incompleto</option>
-                    <option value="Ensino Médio completo">Ensino médio completo</option>
-                    <option value="Ensino Superior incompleto">Ensino superior incompleto</option>
-                    <option value="Ensino Superior completo">Ensino superior completo</option>
+                    <option value="Ensino Médio Completo">Ensino médio completo</option>
+                    <option value="Ensino Superior Incompleto">Ensino superior incompleto</option>
+                    <option value="Ensino Superior Completo">Ensino superior completo</option>
                 </select>
             </div>
         )

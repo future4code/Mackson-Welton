@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 class EnsinoSuperior extends React.Component {
     constructor(props) {
@@ -19,4 +18,4 @@ class EnsinoSuperior extends React.Component {
     }
 }
 
-export default DadosGerais;
+export default EnsinoSuperior;
