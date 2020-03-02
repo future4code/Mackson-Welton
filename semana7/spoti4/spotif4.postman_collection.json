@@ -27,7 +27,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Pop\"\n}"
+							"raw": "{\n\t\"name\": \"\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/playlists/createPlaylist",
@@ -104,7 +104,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"playlistId\": \"b800336f-750f-4218-a44b-189e45882994\",\n\t\"music\": {\n\t\t\"name\": \"Música 4\",\n\t\t\"artist\": \"Artista 4\",\n\t\t\"url\": \"http://spoti4.future4.com.br/4.mp3\"\n\t}\n}"
+							"raw": "{\n\t\"playlistId\": \"b800336f-750f-4218-a44b-189e45882994\",\n\t\"music\": {\n\t\t\"name\": \"Música 6\",\n\t\t\"artist\": \"Artista 6\",\n\t\t\"url\": \"http://spoti4.future4.com.br/6.mp3\"\n\t}\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/playlists/addMusicToPlaylist",
@@ -214,7 +214,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/deletePlaylist?playlistId=9252613d-8ff1-40aa-81c2-ca8bb6ff4174",
+							"raw": "{{baseUrl}}/playlists/deletePlaylist?playlistId=f09730e3-d84b-4918-86fa-4953173476d4",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -225,7 +225,7 @@
 							"query": [
 								{
 									"key": "playlistId",
-									"value": "9252613d-8ff1-40aa-81c2-ca8bb6ff4174"
+									"value": "f09730e3-d84b-4918-86fa-4953173476d4"
 								}
 							]
 						},
@@ -245,7 +245,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/removeMusicFromPlaylist?playlistId=f09730e3-d84b-4918-86fa-4953173476d4&musicId=ad37209d-1d63-45b2-bb6f-7f78f3400087",
+							"raw": "{{baseUrl}}/playlists/removeMusicFromPlaylist?playlistId=&musicId=",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -256,11 +256,11 @@
 							"query": [
 								{
 									"key": "playlistId",
-									"value": "f09730e3-d84b-4918-86fa-4953173476d4"
+									"value": ""
 								},
 								{
 									"key": "musicId",
-									"value": "ad37209d-1d63-45b2-bb6f-7f78f3400087"
+									"value": ""
 								}
 							]
 						},
