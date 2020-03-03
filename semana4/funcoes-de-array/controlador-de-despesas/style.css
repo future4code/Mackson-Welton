@@ -7,9 +7,10 @@ main {
     margin: auto;
 }
 
+
  fieldset {
-    width: 30%;
-    margin: 10% auto;
+    width: 40%;
+    margin: 5% auto;
 }
 
 input {
@@ -29,6 +30,12 @@ select {
 }
 
 table  {
+    width: 60%;
     margin: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+
+table td {
     border: 1px solid black;
 }
