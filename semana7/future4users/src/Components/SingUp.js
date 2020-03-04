@@ -22,7 +22,7 @@ const RegisterButton = styled.button`
   margin: 5px;
 `
 
-class Cadastro extends React.Component {
+class SingUp extends React.Component {
   constructor(props) {
     super(props)
 
@@ -78,4 +78,4 @@ class Cadastro extends React.Component {
   }
 }
 
-export default Cadastro;
+export default SingUp;

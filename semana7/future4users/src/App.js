@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cadastro from './Components/Cadastro';
-import ListaUsuarios from './Components/ListaUsuarios';
+import SingUp from './Components/SingUp';
+import Users from './Components/Users';
 
 const Container = styled.div`
   display: flex;
@@ -21,24 +21,40 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      showList: false
+      showList: "SingUp",
+      showScreen: <SingUp/>
     }
   }
 
   showList = () => {
-    this.setState({
-      showList: !this.state.showList
-    })
+
+    if (this.state.showList === "SingUp") {
+
+      this.setState({
+        showList: "Users",
+        showScreen: <Users/>
+      })
+    } else if (this.state.showList === "Users") {
+      this.setState({
+        showList: "SingUp",
+        showScreen: <SingUp/>
+      })
+    } else {
+      this.setState({
+        showList: "Users",
+        showScreen: <Users/>
+      })
+    }
   }
 
   render() {
 
+    const TextButton = this.state.showList === "SingUp" ? "Lista de Usuários" : "Voltar"
+
     return (
       <Container>
-        {this.state.showList ? <ListaUsuarios /> : <Cadastro />}
-        {this.state.showList ? 
-        <ShowListButton onClick={this.showList}>Ir para a página inicial</ShowListButton> : 
-        <ShowListButton onClick={this.showList}>Mostrar usuários</ShowListButton>}
+        {this.state.showScreen}
+        <ShowListButton onClick={this.showList}>{TextButton}</ShowListButton>
       </Container>
     )
   }
