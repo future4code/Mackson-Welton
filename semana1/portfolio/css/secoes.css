@@ -1,0 +1,16 @@
+.secoes {
+    width: 70%;
+    margin: 3% auto;
+    padding: 3%;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.secoes h2 {
+    margin-bottom: 2%;
+}
+
+.secoes ul li {
+    margin: 1%;
+}
