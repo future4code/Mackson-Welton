@@ -7,7 +7,7 @@ export const deleteTask = id => {
   }
 }
 
-export const deleteAllMaekedTasks = () => {
+export const deleteAllMarkedTasks = () => {
   return {
     type: 'DELETE_ALL_MARKED_TASKS',
   }
