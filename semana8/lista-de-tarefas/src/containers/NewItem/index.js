@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // import action: add new to-do item
-import { newTask } from '../../actions/newTask';
+import { newTask } from '../../actions';
 
 
 import Button from '@material-ui/core/Button';
@@ -20,7 +20,6 @@ class NewItem extends React.Component {
   }
 
   handleChangeText = event => {
-
     this.setState({
       inputValue: event.target.value
     })
@@ -45,7 +44,7 @@ class NewItem extends React.Component {
           }}
         />
         <Button onClick={() => this.props.submitNewTask(this.state.inputValue)}
-          variant="contained" href="#contained-buttons">Todas</Button>
+          variant="contained" href="#contained-buttons">Gravar</Button>
       </div>
     )
   }
