@@ -1,14 +1,17 @@
-export const markTask = id => {
+export const markTask = condition => {
   return {
     type: 'MARK_TASK',
     payload: {
-      id: id
+      mark: condition
     }
   }
 }
 
-export const markAllTasks = () => {
+export const markAllTasks = condition => {
   return {
     type: 'MARK_ALL_TASKS',
+    payload: {
+      markAll: condition
+    }
   }
 }
