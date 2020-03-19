@@ -2,41 +2,49 @@ import React from 'react';
 import { connect } from "react-redux";
 
 // import action: buttons
-import { deleteAllMarkedTasks } from "../../actions/delete";
-import { allTasks, pendingTasks, completeTasks } from '../../actions/filterTasks';
-import { markAllTasks } from '../../actions/markTasks';
+import { filterTasks, markAllTasks, deleteAllMarkedTasks } from '../../actions';
 
+import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 
-const ControlButtons = (props) => {
+const ButtonMarkAllComplete = styled(Button)`
+  margin: 5px;
+`
 
+const ButtonFilter = styled(Button)`
+  margin: 5px;
+`
+
+const ButtonDeleteTasks = styled(Button)`
+  margin: 5px;
+`
+
+const ControlButtons = (props) => {
   return (
     <div>
-      <Button onClick={() => props.markAllAsComplete(true)}
-      variant="contained" color="primary">Marcar todas como completas</Button>
+      <ButtonMarkAllComplete onClick={props.markAllAsComplete}
+      variant="contained" color="primary">Marcar todas como completas</ButtonMarkAllComplete>
 
-      <Button onClick={() => props.showAll(true)}
-      variant="contained" href="#contained-buttons">Todas</Button>
+      <ButtonFilter onClick={() => props.setFilter('All')}
+      variant="contained">Todas</ButtonFilter>
 
-      <Button onClick={() => props.filterAllPending(true)}
-      variant="contained" href="#contained-buttons">Pendentes</Button>
+      <ButtonFilter onClick={() => props.setFilter('Pending')}
+      variant="contained">Pendentes</ButtonFilter>
 
-      <Button onClick={() => props.filterAllComplete(true)}
-      variant="contained" href="#contained-buttons">Completas</Button>
+      <ButtonFilter onClick={() => props.setFilter('Complete')}
+      variant="contained">Completas</ButtonFilter>
 
-      <Button onClick={() => props.deleteTaskComplete(true)}
-      variant="contained" color="secondary">Remover completas</Button>
+      <ButtonDeleteTasks onClick={props.deleteTaskComplete}
+      variant="contained" color="secondary">Remover completas</ButtonDeleteTasks>
     </div>
   )
 }
 
 const mapDispachToProps = dispatch => {
   return {
-    markAllAsComplete: condition => dispatch(markAllTasks(condition)),
-    showAll: condition => dispatch(allTasks(condition)),
-    filterAllPending: condition => dispatch(pendingTasks(condition)),
-    filterAllComplete: condition => dispatch(completeTasks(condition)),
-    deleteTaskComplete: condition => dispatch(deleteAllMarkedTasks(condition))
+    markAllAsComplete: () => dispatch(markAllTasks()),
+    setFilter:  filter => dispatch(filterTasks(filter)),
+    deleteTaskComplete: () => dispatch(deleteAllMarkedTasks())
   }
 }
 
