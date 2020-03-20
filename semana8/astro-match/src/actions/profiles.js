@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 export const clearSwipes = () => async (dispatch) => {
-	await axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/darvas/clear')
+	await axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/mackson/clear')
 }
 
 // Retorna dados do perfil
 
 export const getProfileToSwipe = () => async (dispatch) => {
-	const response = await axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person')
+	const response = await axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/mackson/person')
 
 	dispatch(getProfileData(
 		response.data.profile
@@ -22,13 +22,33 @@ export const getProfileData = (profileToSwipe) => ({
 });
 
 
-// Muda dados do perfil
+// Muda match do perfil
 
 
 export const chooseProfile = (id, choice) => async (dispatch) => {
-	await axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/choose-person', 
+
+	await axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/mackson/choose-person', 
 	{
 		id: id,
 		choice: choice
 	})
+
+	dispatch(getProfileToSwipe())
 }
+
+// Recebe todos os matchs
+
+export const getMatches = () => async (dispatch) => {
+		const response = await axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/mackson/matches')
+
+		dispatch(getProfileMatches(
+			response.data.matches
+		))
+}
+
+export const getProfileMatches = (matches) => ({
+	type: "MATCHES",
+	payload: {
+		matches
+	}
+})
