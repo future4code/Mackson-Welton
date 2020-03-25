@@ -1,78 +1,59 @@
-const initialState = {
-  tasks: [],
-  filter: 'All'
-}
+const initialState =
+  [
+  ]
 
 const newTasks = (state = initialState, action) => {
 
   switch (action.type) {
     case "ADD_NEW_TASK":
-      const text = action.payload.text;
-      const id = Date.now();
-      const complete = false
-      return { 
-        ...state,
-        tasks: [{ text, id, complete }, ...state.tasks] 
-      };
+      const newTask = {
+        id: action.payload.id,
+        done: action.payload.done,
+        text: action.payload.text
+      }
+      return [newTask, ...state]
+
+    case "TASK_LIST":
+      return action.payload.todoList
 
     case "MARK_TASK":
-      const newTasksList = state.tasks.map(item => {
+      return state.map(item => {
         if (item.id === action.payload.id) {
           return {
             ...item,
-            complete: !item.complete
+            done: !item.done
           }
         } else {
           return item
         }
       })
-      return { 
-        ...state,
-        tasks: newTasksList 
-      };
+      
+    case "MARK_ALL_TASKS":
+      return state.map(item => {
+          return {
+            ...item,
+            done: !item.done
+          }
+        })
 
     case "DELETE_TASK":
-      const DeleteTask = state.tasks.filter(item => {
+      return state.filter(item => {
         if (item.id === action.payload.id) {
           return false
         } else {
           return true
         }
       })
-      return { 
-        ...state,
-        tasks: DeleteTask 
-      };
-
-    case "MARK_ALL_TASKS":
-      const TasksListComplete = state.tasks.map(item => {
-        return {
-          ...item,
-          complete: !item.complete
-        }
-      })
-      return { 
-        ...state,
-        tasks: TasksListComplete 
-      };
 
     case "DELETE_ALL_MARKED_TASKS":
-      const DeleteComplete = state.tasks.filter(item => {
-        if (item.complete) {
+      return state.filter(item => {
+        if (item.done) {
           return false
         } else {
           return true
         }
       })
-      return { 
-        ...state,
-        tasks: DeleteComplete 
-      };
-      case "FILTER_TASKS":
-        return {
-          ...state,
-          filter: action.payload.filter
-        };
+
     default:
       return state
   }

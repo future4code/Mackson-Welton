@@ -2,49 +2,55 @@ import React from 'react';
 import { connect } from "react-redux";
 
 // import action: buttons
-import { filterTasks, markAllTasks, deleteAllMarkedTasks } from '../../actions';
+import { filterTasks, toggleAllTodo, toggleAllTodoView, deleteDoneTodos } from '../../actions';
 
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 
-const ButtonMarkAllComplete = styled(Button)`
-  margin: 5px;
-`
-
-const ButtonFilter = styled(Button)`
-  margin: 5px;
-`
-
-const ButtonDeleteTasks = styled(Button)`
-  margin: 5px;
+const WrapperButtons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `
 
 const ControlButtons = (props) => {
+
+  const markAllTask = () => {
+
+    props.toggleAllTodoView()
+
+    props.taskIds.map(item => {
+      props.toggleAllTodo(item.id)
+      return false;
+    })
+  }
+
   return (
-    <div>
-      <ButtonMarkAllComplete onClick={props.markAllAsComplete}
-      variant="contained" color="primary">Marcar todas como completas</ButtonMarkAllComplete>
+    <WrapperButtons>
+      <Button onClick={() => markAllTask()}
+        variant="contained" color="primary">Marcar todas como completas</Button>
 
-      <ButtonFilter onClick={() => props.setFilter('All')}
-      variant="contained">Todas</ButtonFilter>
+      <Button onClick={() => props.setFilter('All')}
+        variant="contained">Todas</Button>
 
-      <ButtonFilter onClick={() => props.setFilter('Pending')}
-      variant="contained">Pendentes</ButtonFilter>
+      <Button onClick={() => props.setFilter('Pending')}
+        variant="contained">Pendentes</Button>
 
-      <ButtonFilter onClick={() => props.setFilter('Complete')}
-      variant="contained">Completas</ButtonFilter>
+      <Button onClick={() => props.setFilter('Done')}
+        variant="contained">Completas</Button>
 
-      <ButtonDeleteTasks onClick={props.deleteTaskComplete}
-      variant="contained" color="secondary">Remover completas</ButtonDeleteTasks>
-    </div>
+      <Button onClick={props.deleteTaskComplete}
+        variant="contained" color="secondary">Remover completas</Button>
+    </WrapperButtons>
   )
 }
 
 const mapDispachToProps = dispatch => {
   return {
-    markAllAsComplete: () => dispatch(markAllTasks()),
-    setFilter:  filter => dispatch(filterTasks(filter)),
-    deleteTaskComplete: () => dispatch(deleteAllMarkedTasks())
+    toggleAllTodo: (id) => dispatch(toggleAllTodo(id)),
+    toggleAllTodoView: () => dispatch(toggleAllTodoView()),
+    setFilter: filter => dispatch(filterTasks(filter)),
+    deleteTaskComplete: () => dispatch(deleteDoneTodos())
   }
 }
 

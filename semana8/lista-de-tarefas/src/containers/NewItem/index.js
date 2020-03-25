@@ -1,14 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 // import action: add new to-do item
-import { newTask } from '../../actions';
+import { addNewTask } from '../../actions';
 
 
 import Button from '@material-ui/core/Button';
-
+import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 
+
+const Input = styled(TextField)`
+  width: 600px;
+`
+
+const Wrapper = styled(Paper)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 class NewItem extends React.Component {
   constructor(props) {
@@ -28,15 +39,14 @@ class NewItem extends React.Component {
   render() {
 
     return (
-      <div>
-        <TextField
+      <Wrapper>
+        <Input
           value={this.state.inputText}
           onChange={this.handleChangeText}
           id="filled-full-width"
           label="Nova Tarefa"
           style={{ margin: 8 }}
           placeholder="Digite uma nova tarefa"
-          fullWidth
           margin="normal"
           variant="filled"
           InputLabelProps={{
@@ -44,15 +54,15 @@ class NewItem extends React.Component {
           }}
         />
         <Button onClick={() => this.props.submitNewTask(this.state.inputValue)}
-          variant="contained" href="#contained-buttons">Gravar</Button>
-      </div>
+          variant="contained">Gravar</Button>
+      </Wrapper>
     )
   }
 }
 
 const mapDispachToProps = dispatch => {
   return {
-    submitNewTask: text => dispatch(newTask(text))
+    submitNewTask: (text) => dispatch(addNewTask(text))
   }
 }
 
