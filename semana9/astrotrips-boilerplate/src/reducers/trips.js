@@ -1,16 +1,16 @@
 const initialState = {
-  trips: undefined
 }
 
 
-const list = (state = initialState, action) => {
+const trips = (state = initialState, action) => {
   switch(action.type) {
     case 'TRIPS':
-      return state.trips = action.payload;
-
+      return {...state, trips: action.payload.trips};
+    case 'TRIP_DETAIL':
+      return {...state, tripDetail: action.payload.tripDetail};
     default:
       return state;
   }
 }
 
-export default list;
+export default trips;

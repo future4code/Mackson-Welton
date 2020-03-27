@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import {login} from '../../actions';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import MenuBar from '../MenuBar';
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -33,25 +36,35 @@ class LoginPage extends Component {
     const { email, password } = this.state;
 
     return (
-      <LoginWrapper>
-        <TextField
-          onChange={this.handleFieldChange}
-          name='email'
-          type='email'
-          label='E-mail'
-          value={email}
-        />
-        <TextField
-          onChange={this.handleFieldChange}
-          name='password'
-          type='password'
-          label='Password'
-          value={password}
-        />
-        <Button>Login</Button>
-      </LoginWrapper>
+      <div>
+        <MenuBar />
+        <LoginWrapper>
+          <TextField
+            onChange={this.handleFieldChange}
+            name='email'
+            type='email'
+            label='E-mail'
+            value={email}
+          />
+          <TextField
+            onChange={this.handleFieldChange}
+            name='password'
+            type='password'
+            label='Password'
+            value={password}
+          />
+          <Button onClick={() => this.props.toSubmitLogin(email, password)}>Login</Button>
+        </LoginWrapper>
+      </div>
     );
   }
 }
 
-export default LoginPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    toSubmitLogin: (email, password) => dispatch(login(email, password))
+  }
+}
+  
+
+export default connect(null, mapDispatchToProps)(LoginPage);

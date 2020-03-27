@@ -1,28 +1,47 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { replace } from 'connected-react-router';
+import { push } from 'connected-react-router';
 import { routes } from '../Router';
-import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import MenuBar from '../../components/MenuBar';
+import MenuBar from '../MenuBar';
 import Button from '@material-ui/core/Button';
+
+const WrapperHome = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 function HomePage(props) {
   return (
     <div>
       <MenuBar />
-      <h1>
-        Faça sua inscrição para próxima viagem espacial.
-        </h1>
-      <Button onClick={props.goToListTripsPage}>Inscreva-se</Button>
+      {window.localStorage.getItem('token') === null ?
+        <WrapperHome>
+          <h1>
+            Faça sua inscrição para próxima viagem espacial.
+          </h1>
+          <Button color='primary' onClick={props.goToApplytoTripPage}>Inscreva-se</Button>
+        </WrapperHome>
+        :
+        <WrapperHome>
+          <h1>
+            Seja bem-vindo ao Painel Administrativo
+          </h1>
+          <Button color='primary' onClick={props.goToListTripsPage}>Visualizar Lista de Viagens</Button>
+        </WrapperHome>}
     </div>
   )
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
-    goToListTripsPage: () => dispatch(replace(routes.listTrips))
+    goToApplytoTripPage: () => dispatch(push(routes.applyToTrip)),
+    goToListTripsPage: () => dispatch(push(routes.listTrips))
   }
 }
 
