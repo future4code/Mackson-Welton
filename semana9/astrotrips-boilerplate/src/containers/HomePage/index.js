@@ -25,14 +25,14 @@ function HomePage(props) {
           <h1>
             Faça sua inscrição para próxima viagem espacial.
           </h1>
-          <Button color='primary' onClick={props.goToApplytoTripPage}>Inscreva-se</Button>
+          <Button color='primary' variant="contained" onClick={props.goToApplytoTripPage}>Inscreva-se</Button>
         </WrapperHome>
         :
         <WrapperHome>
           <h1>
             Seja bem-vindo ao Painel Administrativo
           </h1>
-          <Button color='primary' onClick={props.goToListTripsPage}>Visualizar Lista de Viagens</Button>
+          <Button color='primary' variant="contained" onClick={props.goToListTripsPage}>Visualizar Lista de Viagens</Button>
         </WrapperHome>}
     </div>
   )

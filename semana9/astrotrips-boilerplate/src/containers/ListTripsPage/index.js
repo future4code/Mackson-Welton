@@ -18,15 +18,14 @@ import Paper from '@material-ui/core/Paper';
 
 const WrapperListTrips = styled.div`
   width: 100%;
+  height: 100vh;
   display: grid;
   place-content: center;
   justify-content: center;
-  padding-top: 20px;
 `
 
 const WrapperList = styled(Paper)`
-  max-width: 700px;
-  min-width: 400px;
+  width: 50vw;
   padding: 2px;
   text-align: center;
 `

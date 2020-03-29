@@ -24,8 +24,7 @@ const WrapperTripDetails = styled.div`
 `
 
 const WrapperPaper = styled(Paper)`
-  max-width: 1200px;
-  min-width: 400px;
+  width: 50vw;
   padding: 2px;
 `
 

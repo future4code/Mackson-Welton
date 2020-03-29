@@ -29,10 +29,10 @@ const PaperForm = styled(Paper)`
 `
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 10px;
+  place-content: center;
+  justify-items: center;
+  display: grid;
 `
 
 const Input = styled(TextField)`

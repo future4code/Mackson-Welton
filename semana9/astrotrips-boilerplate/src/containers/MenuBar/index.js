@@ -17,26 +17,39 @@ const StyledToobar = styled(Toolbar)`
 const Img = styled.img`
   width: 75px;
   height: 75px;
+  cursor: pointer;
 `
 const StyledButton = styled.div`
   margin-right: 100px;
 `
-function MenuBar(props) {
+class MenuBar extends React.Component {
 
-  return (
-    <div>
-      <AppBar position='static'>
-        <StyledToobar>
-          <Img onClick={props.goToHome} src={require('../../img/futurex.png')} />
-          <StyledButton>
-            <Button onClick={props.goToHome}>Home</Button>
-            <Button onClick={props.goToApplytoTripPage}>Inscreva-se</Button>
-            <Button onClick={props.goToLogin}>Login</Button>
-          </StyledButton>
-        </StyledToobar>
-      </AppBar>
-    </div>
-  );
+  logoff = () => {
+    window.localStorage.clear();
+    this.props.goToHome();
+  }
+  render() {
+    const token = window.localStorage.getItem('token');
+
+    return (
+      <div>
+        <AppBar position='static'>
+          <StyledToobar>
+            <Img onClick={this.props.goToHome} src={require('../../img/futurex.png')} />
+            <StyledButton>
+              <Button onClick={this.props.goToHome}>Home</Button>
+              <Button onClick={this.props.goToApplytoTripPage}>Inscreva-se</Button>
+              {token === null ?
+                <Button onClick={this.props.goToLogin}>Login</Button> 
+                :
+                <Button onClick={this.logoff}>Sair</Button>
+              }
+            </StyledButton>
+          </StyledToobar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => {

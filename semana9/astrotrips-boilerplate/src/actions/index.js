@@ -39,7 +39,8 @@ export const login = (email, password) => async dispatch => {
     dispatch(push(routes.listTrips));
 
   } catch (error) {
-    console.error("Senha ou e-mail estão errados: ", error.message)
+    alert('E-mail ou senha estão errados.')
+    console.error(error.message)
   }
 }
 
@@ -77,6 +78,8 @@ export const createTrip = tripData => async dispatch => {
       }
     })
 
+    alert('Nova viagem cadastrada com sucesso!')
+
   } catch (error) {
     console.error(error.message)
   }
@@ -93,7 +96,6 @@ export const decideCandidate = (approve, tripId, candidateId) => async dispatch 
       }
     })
   } catch (error) {
-    alert(error.message)
     console.error(error.message)
   }
 }
@@ -105,7 +107,11 @@ export const applyToTrip = dataCandidate => async dispatch => {
         'Content-Type': 'application/json'
       }
     })
+
+    alert('Sua candidatura foi submetida com sucesso! Agora é só cruzar os dedos e aguardar o resultado.')
+    
   } catch(error) {
+    alert('Ops! Algo deu errado por favor tente novamente!')
     console.error(error.message)
   }
 }

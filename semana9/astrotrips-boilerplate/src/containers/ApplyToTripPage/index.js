@@ -20,17 +20,16 @@ const WrapperListTrips = styled.div`
 `
 
 const PaperForm = styled(Paper)`
-  max-width: 700px;
   min-width: 400px;
   padding: 2px;
   text-align: center;
 `
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 10px;
+  place-content: center;
+  justify-items: center;
+  display: grid;
 `
 
 const Input = styled(TextField)`
@@ -82,6 +81,7 @@ class ApplyToTripPage extends React.Component {
                   name='age' type='number' value={age}
                   onChange={this.handleInputChange}
                   label='Idade do Candidato'
+                  InputProps={{ inputProps: { min: 18 } }}
                   required={true}
                 />
                 <Input
@@ -91,19 +91,19 @@ class ApplyToTripPage extends React.Component {
                   required={true}
                 >
                   {this.props.trips.map(trip => {
-                    return <MenuItem key={trip.id} value={trip.id}>{trip.planet}</MenuItem>;
+                    return <MenuItem key={trip.id} value={trip.id}>{trip.name} - {trip.planet}</MenuItem>;
                   })}
                 </Input>
                 <Input
                   name='applicationText' type='text' value={applicationText}
-                  onChange={this.handleInputChange} label='Porque devemos escolher você?'
+                  onChange={this.handleInputChange} label='Por que devemos escolher você?'
                   InputProps={{ inputProps: { pattern: '[A-z.,_-´`áéíóúÁÉÍÓÚàãÃçÇ!? ]{30,}' } }}
                   required={true}
                 />
                 <Input
                   name='profession' type='text' value={profession}
                   onChange={this.handleInputChange} label='Profissão'
-                  InputProps={{ inputProps: { pattern: '[A-z.,_-´`áéíóúÁÉÍÓÚàãÃçÇ!? ]{5,}' } }}
+                  InputProps={{ inputProps: { pattern: '[A-z.,_-´`áéíóúÁÉÍÓÚàãÃçÇ!? ]{10,}' } }}
                   required={true} />
                 <Input
                   name='country' type='text' value={country}
