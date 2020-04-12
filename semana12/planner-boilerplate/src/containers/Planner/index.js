@@ -30,7 +30,7 @@ const ListDays = styled.div`
   gap: 10px;
 `
 
-const Planner = (props) => {
+export const Planner = (props) => {
   const [input, setInput] = useState({ text: "", day: "" })
 
   const tasks = props.tasks;

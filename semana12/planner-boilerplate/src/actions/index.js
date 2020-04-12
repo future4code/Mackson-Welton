@@ -13,6 +13,7 @@ export const setTask = data => async dispatch => {
     dispatch(setTaskToReducer(response.data))
 
   } catch (error) {
+    alert("Ops! Ocorreu um erro ao gravar os dados.");
     console.error(error.message)
   }
 }
@@ -32,14 +33,15 @@ export const getTasks = () => async dispatch => {
       }
     })
 
-    dispatch(tasksToReducer(response.data))
+    dispatch(getTasksToReducer(response.data));
 
   } catch (error) {
-    console.error(error.message)
+    alert("Ops! Ocorreu um erro ao carregar os dados.");
+    console.error(error.message);
   }
 }
 
-export const tasksToReducer = data => ({
+export const getTasksToReducer = data => ({
   type: 'TASKS',
   payload: {
     data

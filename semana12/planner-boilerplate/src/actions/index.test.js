@@ -13,7 +13,7 @@ describe('Planner Actions', () => {
 
   test("Add New Task", async () => {
 
-    const mockData = {
+    const mockTasks = {
       data: {
         id: 555,
         day: 'Sexta',
@@ -22,10 +22,10 @@ describe('Planner Actions', () => {
     }
 
     axios.post = jest.fn(() => {
-      return mockData
+      return mockTasks
     })
 
-    const data = mockData.data;
+    const data = mockTasks.data;
 
     const expectedAction = {
       type: 'NEW_TASK',
@@ -40,7 +40,7 @@ describe('Planner Actions', () => {
 
   test("Get Tasks", async () => {
 
-    const mockData = {
+    const mockTasks = {
       data: [
         {
           id: 123,
@@ -56,10 +56,10 @@ describe('Planner Actions', () => {
     };
 
     axios.get = jest.fn(() => {
-      return mockData
+      return mockTasks
     })
 
-    const data = mockData.data
+    const data = mockTasks.data
 
     const expectedAction = {
       type: 'TASKS',
