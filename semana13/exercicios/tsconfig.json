@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outDir": "exercicios/build",
+    "sourceMap": true,
+    "target": "es6",
+    "module": "commonjs"
+  },
+  "include": [
+    "exercicios/src/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
