@@ -1,0 +1,24 @@
+{
+  "name": "exercicio1",
+  "version": "0.0.1",
+  "description": "Exercício 1",
+  "main": "exercicio1.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node exercicio1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/future4code/Mackson-Welton.git"
+  },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "Mackson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/future4code/Mackson-Welton/issues"
+  },
+  "homepage": "https://github.com/future4code/Mackson-Welton#readme"
+}
