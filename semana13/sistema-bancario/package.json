@@ -1,0 +1,32 @@
+{
+  "name": "sistema-bancario",
+  "version": "1.0.0",
+  "description": "Sistema bancário básico",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "axios": "^0.19.2"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "tsc && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/future4code/Mackson-Welton.git"
+  },
+  "keywords": [
+    "sistema-bancario",
+    "node",
+    "typescript"
+  ],
+  "author": "Mackson Welton Dias da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/future4code/Mackson-Welton/issues"
+  },
+  "homepage": "https://github.com/future4code/Mackson-Welton#readme"
+}
