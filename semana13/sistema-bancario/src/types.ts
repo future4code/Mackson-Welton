@@ -3,11 +3,11 @@ export type users = {
   age: string,
   cpf: string,
   balance: number,
-  allExpenses: number[]
+  statements: any[]
 }
 
-export type statement = {
+export type statements = {
+  description: string,
   amount: number,
-  date: string,
-  description: string
+  date: string
 }
