@@ -1,0 +1,71 @@
+[
+  {
+    "startDate": "2020-05-25T03:00:00.000Z",
+    "endDate": "2020-04-20T03:00:00.000Z",
+    "teachers": [
+      {
+        "name": "Mackson",
+        "email": "mackson@mackson",
+        "specialities": [
+          "React"
+        ],
+        "id": 1588274728
+      },
+      {
+        "name": "José",
+        "email": "jose@email",
+        "specialities": [
+          "Redux"
+        ],
+        "id": 1588274728
+      },
+      {
+        "name": "Renato",
+        "email": "renato@email.com",
+        "specialities": [
+          "Testes"
+        ],
+        "id": 1588274728
+      },
+      {
+        "name": "Fernando",
+        "email": "fernando@email.com",
+        "specialities": [
+          "POO"
+        ],
+        "id": 1588274728
+      }
+    ],
+    "students": [
+      {
+        "name": "Mackson",
+        "email": "mackson@email.com",
+        "dateOfBirth": "25/06/2020",
+        "hobbies": [
+          "Jogar Futebol",
+          "Jogar Basketball"
+        ],
+        "id": 1588274728
+      },
+      {
+        "name": "Welton",
+        "email": "welton@email.com",
+        "dateOfBirth": "10/05/2020",
+        "hobbies": [
+          "Jogar Games",
+          "Natação"
+        ],
+        "id": 1588274728
+      }
+    ],
+    "id": 1588274728,
+    "name": "Redux-na-night"
+  },
+  {
+    "startDate": "2020-05-25T03:00:00.000Z",
+    "endDate": "2020-04-20T03:00:00.000Z",
+    "teachers": [],
+    "students": [],
+    "id": 1588274728
+  }
+]
