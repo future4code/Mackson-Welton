@@ -1,0 +1,206 @@
+### Exercício 1
+
+a) Sim, usar strings garande que o ID possa mesclar números e letras garantindo uma probabilidade menor de colisão.
+
+b) import { v4 } from "uuid";
+
+export class IdGenerator {
+  public generate(): string {
+    return v4();
+  }
+}
+
+### Exercício 2
+
+a) O código conecta ao banco de dados usano a biblioteca knex e cadastra o novo usuário com a função createUser.
+
+b) CREATE TABLE User (
+		id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+c) import knex from "knex";
+
+export class UserDatabase {
+  private connection = knex({
+    client: "mysql",
+    connection: {
+      host: process.env.DB_HOST,
+      port: 3306,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE_NAME,
+    },
+  });
+
+	private static TABLE_NAME = "User";
+
+  public async createUser(
+    id: string,
+    email: string,
+    password: string
+  ): Promise<void> {
+    await this.connection
+      .insert({
+        id,
+        email,
+        password,
+      })
+		.into(UserDatabase.TABLE_NAME);
+  }
+}
+
+
+### Exercício 3 
+
+a) "as string" converte o token para string e utilizamos ela para ter um token em formato de string.
+
+b) import * as jwt from "jsonwebtoken";
+
+export class Authenticator {
+  private static EXPIRES_IN = "1min";
+  public generateToken(input: AuthenticationData): string {
+    const token = jwt.sign(
+      {
+        id: input.id,
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn: Authenticator.EXPIRES_IN,
+      }
+    );
+    return token;
+  }
+}
+
+interface AuthenticationData {
+  id: string;
+}
+
+
+### Exercício 4
+
+a, b, c)
+
+app.post("/signup", async (req: Request, res: Response) => {
+  try {
+    const user = {
+      email: req.body.email,
+      password: req.body.password
+    }
+
+    if (user.password.length < 6 || user.email.length === 0 && !user.email.includes("@")) {
+      throw new Error('Oooops! E-mail ou senha são invalidos.');
+    } else {
+      
+      const idGenerator: any = new IdGenerator();
+      const id: string = idGenerator.generate();
+
+      const userDatabase: any = new UserDatabase();
+      await userDatabase.createUser(id, user.email, user.password);
+
+      const authenticator = new Authenticator()
+      const token = authenticator.generateToken({
+        id,
+      });
+
+      res.status(200).send({ token });
+    }
+  } catch (err) {
+    res.status(402).send({
+      messager: err.message
+    })
+  }
+})
+
+### Exercício 5
+
+a) public async getUserEmail(email: string): Promise<any> {
+    const result = await this.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ email });
+
+    return result[0];
+  }
+
+  ### Exercício 6
+
+  a, b) app.post("/login", async (req: Request, res: Response) => {
+  try {
+    const userData = {
+      email: req.body.email,
+      password: req.body.password
+    }
+
+    if (userData.password.length < 6 || userData.email.length === 0 && !userData.email.includes("@")) {
+      throw new Error('Oooops! E-mail ou senha são invalidos.');
+    } else {
+      const userDatabase: any = new UserDatabase();
+      const user = await userDatabase.getUserEmail(userData.email);
+      if (user.password !== userData.password) {
+        throw new Error('Oooops! Senha incorreta.');
+      } else {
+
+        const authenticator = new Authenticator();
+        const token = authenticator.generateToken({
+          id: user.id,
+        });
+  
+        res.status(200).send({ token });
+
+      }
+
+    }
+  } catch (err) {
+    res.status(402).send({
+      message: err.message
+    });
+ 
+  }
+})
+
+### Exercício 7
+
+a) Converte o tipo do valor retornado para any e usamos para indicar ao editor que o retorno da função pode ser qualquer coisa.
+
+b) public getData(token: string): AuthenticationData {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+    const result = {
+      id: payload.id,
+    };
+    return result;
+  }
+
+  ### Exercício 8
+
+  a)   public async getUserId(id: string): Promise<any> {
+    const result = await this.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ id });
+
+    return result[0];
+  }
+
+  b) app.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+
+    const authenticator = new Authenticator();
+    const authenticationData = authenticator.getData(token);
+
+    const userDb = new UserDatabase();
+    const user = await userDb.getUserId(authenticationData.id);
+
+    res.status(200).send({
+      id: user.id,
+      email: user.email
+    });
+  } catch (err) {
+    res.status(402).send({
+      message: err.message
+    });
+  }
+});
