@@ -84,8 +84,6 @@ export class UserDatabase extends BaseDatabase {
     return result[0][0];
   }
 
-
-
   public async approveBand(id, isApprove): Promise<void> {
     isApprove = super.convertBooleanToTinyInt(isApprove);
     await super.getConnection().raw(`

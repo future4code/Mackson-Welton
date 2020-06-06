@@ -11,8 +11,8 @@ export class UserController {
   public async userSignup(req: Request, res: Response) {
     try {
       let { name, nickname, email, password, role} = req.body;
-      const id = await new IdGenerator().generate();
-      const result = await new TokenGenerator().generate({id, role});
+      const id: string = await new IdGenerator().generate();
+      const result: string = await new TokenGenerator().generate({id, role});
       password = await new HashGenerator().hash(password);
 
       const isApproved: boolean = true;
@@ -49,7 +49,7 @@ export class UserController {
     try {
 
       let { name, nickname, email, description, password } = req.body;
-      const id = await new IdGenerator().generate();
+      const id: string = await new IdGenerator().generate();
       password = await new HashGenerator().hash(password);
       const role: UserRole = UserRole.BAND;
       const isApproved: boolean = false;
@@ -70,7 +70,7 @@ export class UserController {
       const {email, nickname, password} = req.body;
       const {id, role} = await new UserBusiness().login(email, nickname, password);
 
-      const token = await new TokenGenerator().generate({id, role})
+      const token: string = await new TokenGenerator().generate({id, role})
 
       res.status(200).send({token})
     } catch(err) {
@@ -80,9 +80,9 @@ export class UserController {
 
   public async getAllBands(req: Request, res: Response) {
     try {
-      const token = req.headers.authorization as string;
+      const token: string = req.headers.authorization as string;
 
-      const result = await new UserBusiness().getAllBands(token);
+      const result: string = await new UserBusiness().getAllBands(token);
 
       res.status(200).send(result)
     } catch(err) {

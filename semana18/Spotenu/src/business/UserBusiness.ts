@@ -83,7 +83,12 @@ export class UserBusiness {
 
     const result = await new UserDatabase().login(email, nickname);
 
-    const pass = new HashGenerator().compareHash(password, result.password);
+    if (result === undefined) {
+      throw new InvalidParameterError("Password or login is wrong.");
+    }
+
+    const pass = await new HashGenerator().compareHash(password, result.password);
+  
     if (pass) {
       return result;
     } else {

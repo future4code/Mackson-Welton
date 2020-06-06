@@ -9,6 +9,6 @@ export class HashGenerator{
     }
 
     public compareHash = async (s: string, hash: string): Promise<boolean> => {
-        return bcrypt.compare(s, hash)
+        return bcrypt.compare(s, hash);
     }
 }
