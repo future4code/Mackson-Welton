@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Mackson",
+    "email": "mackson@email.com",
+    "dateOfBirth": "25/06/2020",
+    "hobbies": [
+      "Jogar Futebol",
+      "Jogar Basketball"
+    ],
+    "id": 1588274728
+  },
+  {
+    "name": "Welton",
+    "email": "welton@email.com",
+    "dateOfBirth": "10/05/2020",
+    "hobbies": [
+      "Jogar Games",
+      "Natação"
+    ],
+    "id": 1588274728
+  }
+]

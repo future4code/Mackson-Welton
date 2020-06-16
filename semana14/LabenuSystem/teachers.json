@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Mackson",
+    "email": "mackson@mackson",
+    "specialities": [
+      "React"
+    ],
+    "id": 1588274728
+  },
+  {
+    "name": "José",
+    "email": "jose@email",
+    "specialities": [
+      "Redux"
+    ],
+    "id": 1588274728
+  },
+  {
+    "name": "Renato",
+    "email": "renato@email.com",
+    "specialities": [
+      "Testes"
+    ],
+    "id": 1588274728
+  },
+  {
+    "name": "Fernando",
+    "email": "fernando@email.com",
+    "specialities": [
+      "POO"
+    ],
+    "id": 1588274728
+  }
+]
