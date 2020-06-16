@@ -1,0 +1,16 @@
+1)
+a)
+b) Missing input
+c) Missing email
+d) Invalid password
+e) User is correct
+g) Reo
+{
+ "user": {
+  "info": {
+   "name": "Astrodev",
+   "email" "astrodev@gmail.com",
+   "password": "123456"
+  }
+ }
+}
